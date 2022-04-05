@@ -12,7 +12,7 @@ let estadoPrincipal = {
     preload: function(){
         // juego.stage.backgroundColor = "#000";
         juego.load.image('fondo','img/Fondo2.jpg')
-        juego.load.spritesheet('pajaro','img/Personaje2.png',39.74,30)
+        juego.load.spritesheet('pajaro','img/Nuri2.png',39.74,30)
     },
 
     create: function(){
