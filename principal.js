@@ -1,6 +1,7 @@
 let juego = new Phaser.Game(370,550,Phaser.CANVAS,'bloque_juego');
+
 let fondoJuego;
-let flappy;
+var flappy;
 
 let teclaDerecha;
 let teclaIzquierda;
@@ -37,22 +38,27 @@ let estadoPrincipal = {
        botonDerecha = juego.add.button(juego.width-50,juego.height-75,'btn',this.clickDerecha,this,0,1,0)
        botonDerecha.anchor.setTo(0.5,0.5)
        botonIzquierda = juego.add.button(juego.width-150,juego.height-75,'btn',this.clickIzquierda,this,0,1,0)
-       botonIzquierda.anchor.setTo(0.5,0.5)
-    },
+       botonIzquierda.anchor.setTo(0.5,0.5)             
+    },    
 
     clickArriba: function(){
         console.log("click arriba")
+        flappy.y-=5;
     },
     clickAbajo: function(){
         console.log("click abajo")
+        flappy.y+=5;
     },
 
     clickDerecha: function(){
         console.log("click recha")
-        flappy.x++;
+        
+        flappy.x+=5;
     },
-    clickIzquierda: function(){
-        console.log("click izquierda")
+    clickIzquierda: function(sprite,pointer){
+        console.log("click izquierda")     
+        console.log(juego)               
+        flappy.x-=5
     },
     update: function(){
         fondoJuego.tilePosition.x -= 1; 
@@ -67,7 +73,8 @@ let estadoPrincipal = {
             flappy.y--;
         }else if(teclaAbajo.isDown){
             flappy.y++;
-        }
+        }              
+
     }
 };
 
